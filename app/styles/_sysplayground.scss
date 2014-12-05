@@ -160,11 +160,19 @@ body {
 #tty0 {
     width: 100%;
     height: 100%;
+    font-size: 13px;
+    font-family: courier, fixed, swiss, monospace, sans-serif;
+    background-color: #000000;
+    color: #d3d3d3;
 }
 
 #tty1 {
     width: 100%;
     height: 100%;
+    font-size: 13px;
+    font-family: courier, fixed, swiss, monospace, sans-serif;
+    background-color: #000000;
+    color: #d3d3d3;
 }
 
 .tty-buttons {

@@ -242,7 +242,8 @@
                     <div id="doc-container" data-bind="html: challengeDoc"></div>
                     <div id="tty-pane">
                         <div id="tty-container">
-                            <canvas id="tty0" class="screen" width="640" height="384">Terminal1</canvas>
+                            <!--<canvas id="tty0" class="screen" width="640" height="384">Terminal1</canvas>-->
+                            <textarea id="tty0" class="screen" width="640" height="384">Terminal1</textarea>
                             <div class="tty-buttons">
                                 <button data-bind="click: function () { ttyFullScreen(!ttyFullScreen()); }" class="btn btn-xs btn-default">
                                     <span data-bind="css: ttyToggleBtnClass"></span>
@@ -253,7 +254,8 @@
                             </div>
                         </div>
                         <div id="tty-container-two">
-                            <canvas id="tty1" class="screen" width="640" height="384">Terminal2</canvas>
+                            <!--<canvas id="tty1" class="screen" width="640" height="384">Terminal2</canvas>-->
+                            <textarea id="tty1" class="screen" width="640" height="384">Terminal1</textarea>
                             <div class="tty-buttons">
                                 <button data-bind="click: function () { ttyFullScreen(!ttyFullScreen()); }" class="btn btn-xs btn-default">
                                     <span data-bind="css: ttyToggleBtnClass"></span>
@@ -353,7 +355,7 @@
         <!-- build:js scripts/jor1k.js -->
         <!--<script src="jor1k/js/master/terminal.js"></script>-->
         <!-- Temporary jor1k terminal.js-->
-        <script src="scripts/jor1k-terminal.js>
+        <script src="scripts/jor1k-terminal.js"></script>
         <script src="jor1k/js/master/terminal-input.js"></script>
         <script src="jor1k/js/master/ethernet.js"></script>
         <!-- endbuild -->
