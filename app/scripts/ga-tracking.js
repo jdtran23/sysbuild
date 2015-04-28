@@ -105,6 +105,20 @@ window.Tracker = (function () {
         });
     };
 
+    Tracker.prototype.trackVideoProgress = function (percent, page, title) {
+        var properties = {
+            page: page || window.location.pathname + window.location.search + window.location.hash
+        };
+        if (title) {
+            properties.title = title;
+        }
+        ga(function () {
+            ga.getAll().forEach(function (tracker) {
+                tracker.send('event', 'video', 'watched', percent, properties);
+            });
+        });
+    };
+
     return {
         getInstance: function () {
             if (!instance) {

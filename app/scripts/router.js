@@ -141,15 +141,19 @@ window.Router = (function () {
 
         var video_progress_track = function () {
             var video = videojs('lesson-video');
-            var totalTime = video.duration();
             video.one('play', video_progress_interval);
-
+            //console.log('fire');
         };
 
         var video_progress_interval = function() {
             var video = videojs('lesson-video');
-            video.setInterval(1000, video_progress_fire);
+            video.setInterval(video_progress_fire, 1000);
         };
+
+        var quarter = false;
+        var half = false;
+        var most = false;
+        var all = false;
 
         var video_progress_fire = function() {
             var video = videojs('lesson-video');
@@ -157,24 +161,25 @@ window.Router = (function () {
             var currentTime = video.currentTime();
             var percent = currentTime/totalTime;
 
-            var quarter = false;
-            var half = false;
-            var most = false;
-            var all = false;
-            if(percent >= .25 && !quarter) {
+            //console.log('fire');
+            if(percent >= .25 && quarter === false) {
                 console.log("fire 25%");
+                Tracker.getInstance().trackVideoProgress('25% watched');
                 quarter = true;
             }
-            if(percent >= .50 && !half) {
+            if(percent >= .50 && half === false) {
                 console.log("fire 50%");
+                Tracker.getInstance().trackVideoProgress('50% watched');
                 half = true;
             }
-            if(percent >= .75 && !most) {
+            if(percent >= .75 && most === false) {
                 console.log("fire 75%");
+                Tracker.getInstance().trackVideoProgress('75% watched');
                 most = true;
             }
-            if(percent >= .99 && !all) {
+            if(percent >= .99 && all === false) {
                 console.log("fire 100%");
+                Tracker.getInstance().trackVideoProgress('100% watched');
                 all = true;
             }
         };
