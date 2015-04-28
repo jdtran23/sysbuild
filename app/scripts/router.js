@@ -142,12 +142,20 @@ window.Router = (function () {
         var video_progress_track = function () {
             var video = videojs('lesson-video');
             var totalTime = video.duration();
-            video.one('play')
+            video.one('play', video_progress_interval);
 
         };
 
         var video_progress_interval = function() {
-          var video = videojs('lesson-video');
+            var video = videojs('lesson-video');
+            video.setInterval(1000, video_progress_fire);
+        };
+
+        var video_progress_fire = function() {
+            var video = videojs('lesson-video');
+            var totalTime = video.duration();
+            var currentTime = video.currentTime();
+            console.log(currentTime);
         };
 
         return Sammy(function () {
@@ -194,6 +202,7 @@ window.Router = (function () {
                         goToPlayGround(activity);
                     } else if (activity.type === 'video') {
                         goToVideoLesson(activity);
+                        video_progress_track();
                     } else {
                         self.redirect('#/');
                     }
