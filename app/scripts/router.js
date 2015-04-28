@@ -141,6 +141,17 @@ window.Router = (function () {
             }
         };
 
+        var video_progress_track = function () {
+            var video = videojs('lesson-video');
+            var totalTime = video.duration();
+            video.one('play')
+
+        };
+
+        var video_progress_interval = function() {
+          var video = videojs('lesson-video');
+        };
+
         return Sammy(function () {
             this.get('/', function () {
                 var self = this;
