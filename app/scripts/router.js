@@ -155,7 +155,28 @@ window.Router = (function () {
             var video = videojs('lesson-video');
             var totalTime = video.duration();
             var currentTime = video.currentTime();
-            console.log(currentTime);
+            var percent = currentTime/totalTime;
+
+            var quarter = false;
+            var half = false;
+            var most = false;
+            var all = false;
+            if(percent >= .25 && !quarter) {
+                console.log("fire 25%");
+                quarter = true;
+            }
+            if(percent >= .50 && !half) {
+                console.log("fire 50%");
+                half = true;
+            }
+            if(percent >= .75 && !most) {
+                console.log("fire 75%");
+                most = true;
+            }
+            if(percent >= .99 && !all) {
+                console.log("fire 100%");
+                all = true;
+            }
         };
 
         return Sammy(function () {
