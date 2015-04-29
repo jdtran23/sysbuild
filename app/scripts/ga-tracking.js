@@ -114,7 +114,7 @@ window.Tracker = (function () {
         }
         ga(function () {
             ga.getAll().forEach(function (tracker) {
-                tracker.send('event', 'video', 'watched');
+                tracker.send('event', 'video', 'watched', percent, properties);
             });
         });
     };
